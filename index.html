@@ -5,43 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Acadêmico DevOps</title>
   <link rel="stylesheet" href="style.css">
+<base target="_blank">
 </head>
 <body>
   <header class="topo">
+    <span class="periodo-badge">Período Letivo 2026.2</span>
     <h1>Portal Acadêmico DevOps</h1>
     <p>Ambiente de serviços acadêmicos e colaboração.</p>
     <button id="botaoDestaque">Ver serviços</button>
   </header>
-    <main>
+
+  <main>
     <section id="servicos" class="secao">
       <h2>Serviços disponíveis</h2>
+      <p class="subtitulo">Confira abaixo os serviços acadêmicos. Se você é aluno novo, comece pela <strong>Matrícula</strong>.</p>
       <div class="cards">
-        <article class="card">
+        <article class="card card-destaque">
+          <span class="etapa">1º passo</span>
           <h3>Matrícula</h3>
-          <p>Orientações sobre matrícula e documentação.</p>
+          <p>Orientações sobre matrícula, rematrícula e documentação obrigatória para ingressantes.</p>
         </article>
         <article class="card">
+          <span class="etapa">2º passo</span>
           <h3>Calendário</h3>
-          <p>Datas importantes do período letivo.</p>
+          <p>Datas importantes do período letivo, prazos de trancamento e feriados acadêmicos.</p>
         </article>
         <article class="card">
+          <span class="etapa">3º passo</span>
           <h3>Atendimento</h3>
-          <p>Canal para dúvidas e solicitações.</p>
+          <p>Canal para dúvidas, solicitações e suporte técnico ao aluno.</p>
         </article>
       </div>
     </section>
-      <section class="secao">
+
+    <section class="secao" id="info-atendimento">
+      <h2>Horário de Atendimento</h2>
+      <div class="info-box">
+        <p><strong>Segunda a sexta:</strong> 08h00 às 18h00</p>
+        <p><strong>Sábado:</strong> 08h00 às 12h00</p>
+        <p><strong>Prazo de resposta:</strong> até 2 dias úteis para solicitações enviadas pelo formulário.</p>
+      </div>
+    </section>
+
+    <section class="secao">
       <h2>Contato</h2>
-      <form id="formContato">
-        <label for="nome">Nome</label>
-        <input id="nome" type="text" placeholder="Digite seu nome">
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" placeholder="Digite sua solicitação"></textarea>
-        <button type="submit">Enviar</button>
+      <form id="formContato" novalidate>
+        <label for="nome">Nome *</label>
+        <input id="nome" type="text" placeholder="Digite seu nome completo" required>
+
+        <label for="email">E-mail *</label>
+        <input id="email" type="email" placeholder="Digite seu e-mail institucional" required>
+
+        <label for="mensagem">Mensagem *</label>
+        <textarea id="mensagem" placeholder="Descreva sua dúvida ou solicitação" required></textarea>
+
+        <button type="submit">Enviar mensagem</button>
       </form>
-      <p id="resposta"></p>
+      <div id="resposta" class="mensagem-resposta" role="status" aria-live="polite"></div>
     </section>
   </main>
+
+  <footer class="rodape">
+    <p>Portal Acadêmico DevOps — Versão 1.1 | Equipe de Desenvolvimento</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
