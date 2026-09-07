@@ -8,40 +8,60 @@
 </head>
 <body>
   <header class="topo">
+    <span class="badge-periodo">Período Letivo 2026.2</span>
     <h1>Portal Acadêmico DevOps</h1>
     <p>Ambiente de serviços acadêmicos e colaboração.</p>
+    <p class="subtitulo">Novo por aqui? Comece pela <strong>Matrícula</strong> — é o primeiro passo.</p>
     <button id="botaoDestaque">Ver serviços</button>
   </header>
-    <main>
+  <main>
     <section id="servicos" class="secao">
       <h2>Serviços disponíveis</h2>
       <div class="cards">
-        <article class="card">
+        <article class="card card-destaque">
+          <span class="etapa">1º passo</span>
           <h3>Matrícula</h3>
-          <p>Orientações sobre matrícula e documentação.</p>
+          <p>Orientações sobre matrícula e documentação. Comece por aqui.</p>
         </article>
         <article class="card">
+          <span class="etapa">2º passo</span>
           <h3>Calendário</h3>
-          <p>Datas importantes do período letivo.</p>
+          <p>Consulte as datas importantes do período letivo depois de concluir a matrícula.</p>
         </article>
         <article class="card">
+          <span class="etapa">3º passo</span>
           <h3>Atendimento</h3>
-          <p>Canal para dúvidas e solicitações.</p>
+          <p>Canal para dúvidas e solicitações que não foram resolvidas nas etapas anteriores.</p>
         </article>
       </div>
     </section>
-      <section class="secao">
+
+    <section class="secao">
+      <h2>Horário de Atendimento</h2>
+      <p>Segunda a sexta, das 8h às 18h.</p>
+      <p>Solicitações enviadas pelo formulário abaixo têm prazo de resposta de até <strong>2 dias úteis</strong>.</p>
+    </section>
+
+    <section class="secao">
       <h2>Contato</h2>
-      <form id="formContato">
+      <form id="formContato" novalidate>
         <label for="nome">Nome</label>
-        <input id="nome" type="text" placeholder="Digite seu nome">
+        <input id="nome" type="text" placeholder="Digite seu nome" required>
+
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="Digite seu e-mail" required>
+
         <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" placeholder="Digite sua solicitação"></textarea>
+        <textarea id="mensagem" placeholder="Digite sua solicitação" required></textarea>
+
         <button type="submit">Enviar</button>
       </form>
-      <p id="resposta"></p>
+      <p id="resposta" class="mensagem-resposta" aria-live="polite"></p>
     </section>
   </main>
+  <footer class="rodape">
+    <p>Portal Acadêmico DevOps — projeto de colaboração com Git e GitHub (versão 1.1).</p>
+  </footer>
   <script src="script.js"></script>
 </body>
 </html>
