@@ -59,7 +59,7 @@ Evoluir o Portal Acadêmico DevOps com base na demanda do cliente externo, torna
 1. **Organização:** Criação do repositório, primeiro commit e publicação inicial no GitHub Pages
 2. **Entrevista com cliente externo:** Levantamento de demandas e prioridades
 3. **Issue principal:** Registro formal da demanda "Evolução do Portal Acadêmico DevOps - versão 1.1" com 8 requisitos
-4. **Planejamento interno:** Distribuição de tarefas por papéis e criação de branches (`feature/estrutura`, `feature/interface`, `feature/funcionalidades`, `feature/documentacao`)
+4. **Planejamento interno:** Distribuição de tarefas por papéis e criação de branches (`feature/interface`, `feature/funcionalidades`, `README-1.1`)
 5. **Desenvolvimento paralelo:** Cada integrante trabalhou em sua branch com commits descritivos
 6. **Pull Requests:** Abertura de PRs explicando requisitos atendidos, arquivos alterados e decisões tomadas
 7. **Revisão cruzada:** Comentários de aprovação e ajuste nos Pull Requests
@@ -67,9 +67,7 @@ Evoluir o Portal Acadêmico DevOps com base na demanda do cliente externo, torna
 
 ## 🌐 Link da Página Publicada
 
-🔗 **[https://SEU-USUARIO.github.io/SEU-REPOSITORIO](https://SEU-USUARIO.github.io/SEU-REPOSITORIO)**
-
-> Substitua pelo link real do seu GitHub Pages após a publicação.
+🔗 **[https://stleer.github.io/atividadeDevops/](https://stleer.github.io/atividadeDevops/)**
 
 ## 📜 Como o histórico do projeto pode ser consultado
 
