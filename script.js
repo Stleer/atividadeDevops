@@ -18,7 +18,9 @@ formContato.addEventListener("submit", (evento) => {
   const mensagemInput = document.querySelector("#mensagem");
 
   const nome = nomeInput.value.trim();
-  const email = emailInput.value.trim();
+  // O campo de e-mail ainda depende da branch feature/interface (Natã).
+  // Guardado assim para não quebrar o formulário enquanto o campo não existe no HTML.
+  const email = emailInput ? emailInput.value.trim() : "";
   const mensagem = mensagemInput.value.trim();
 
   // Limpa mensagens anteriores
@@ -26,18 +28,20 @@ formContato.addEventListener("submit", (evento) => {
   resposta.textContent = "";
 
   // Validação de campos obrigatórios
-  if (!nome || !email || !mensagem) {
+  if (!nome || (emailInput && !email) || !mensagem) {
     resposta.classList.add("erro");
     resposta.textContent = "⚠️ Por favor, preencha todos os campos obrigatórios.";
     return;
   }
 
-  // Validação de e-mail (formato básico)
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    resposta.classList.add("erro");
-    resposta.textContent = "⚠️ Por favor, insira um e-mail válido.";
-    return;
+  // Validação de e-mail (formato básico) — só roda quando o campo existir
+  if (emailInput) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      resposta.classList.add("erro");
+      resposta.textContent = "⚠️ Por favor, insira um e-mail válido.";
+      return;
+    }
   }
 
   // Validação de tamanho mínimo da mensagem
@@ -47,13 +51,36 @@ formContato.addEventListener("submit", (evento) => {
     return;
   }
 
-  // Sucesso: exibe confirmação visual clara
+  // Sucesso: exibe confirmação visual clara.
+  // Nome/e-mail são inseridos como texto (não innerHTML) para evitar XSS.
   resposta.classList.add("sucesso");
-  resposta.innerHTML = `
-    ✅ <strong>Mensagem enviada com sucesso!</strong><br>
-    Obrigado pelo contato, <strong>${nome}</strong>.<br>
-    Responderemos no e-mail <strong>${email}</strong> em até <strong>2 dias úteis</strong>.
-  `;
+  resposta.textContent = "";
+
+  const linha1 = document.createElement("strong");
+  linha1.textContent = "✅ Mensagem enviada com sucesso!";
+  resposta.appendChild(linha1);
+  resposta.appendChild(document.createElement("br"));
+
+  resposta.appendChild(document.createTextNode("Obrigado pelo contato, "));
+  const nomeForte = document.createElement("strong");
+  nomeForte.textContent = nome;
+  resposta.appendChild(nomeForte);
+  resposta.appendChild(document.createTextNode("."));
+  resposta.appendChild(document.createElement("br"));
+
+  if (emailInput) {
+    resposta.appendChild(document.createTextNode("Responderemos no e-mail "));
+    const emailForte = document.createElement("strong");
+    emailForte.textContent = email;
+    resposta.appendChild(emailForte);
+    resposta.appendChild(document.createTextNode(" em até "));
+  } else {
+    resposta.appendChild(document.createTextNode("Responderemos em até "));
+  }
+  const prazoForte = document.createElement("strong");
+  prazoForte.textContent = "2 dias úteis";
+  resposta.appendChild(prazoForte);
+  resposta.appendChild(document.createTextNode("."));
 
   // Limpa o formulário após envio
   formContato.reset();
