@@ -13,7 +13,6 @@ Evoluir o Portal Acadêmico DevOps com base na demanda do cliente externo, torna
 | Natã Machado | Líder / Integrador / Desenvolvedor Interface |
 | Elvis Silva | Desenvolvedor Funcionalidades |
 | Daniel Rodrigues | Desenvolvedor Estrutura |
-| [Nome do 4º integrante] | Revisor / Documentação / Cliente Externo Cruzado |
 
 ## 🛠️ Tecnologias
 
