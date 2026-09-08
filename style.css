@@ -69,6 +69,14 @@ body {
   background: linear-gradient(135deg, #fff0f7, #ffffff);
   border-color: #e6007e;
 }
+.link-card {
+  color: #e6007e;
+  font-weight: bold;
+  text-decoration: none;
+}
+.link-card:hover {
+  text-decoration: underline;
+}
 .etapa {
   display: inline-block;
   background: #f4f5f7;
