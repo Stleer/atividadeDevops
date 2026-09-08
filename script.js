@@ -10,6 +10,11 @@ botaoDestaque.addEventListener("click", () => {
 const formContato = document.querySelector("#formContato");
 const resposta = document.querySelector("#resposta");
 
+// Controla o timeout de sumiço automático da mensagem de sucesso (Rodada 2).
+// Guardado fora do handler para poder cancelar um timeout antigo se o
+// usuário enviar o formulário de novo antes dos 5s acabarem.
+let timeoutMensagemSucesso = null;
+
 formContato.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
@@ -24,6 +29,7 @@ formContato.addEventListener("submit", (evento) => {
   const mensagem = mensagemInput.value.trim();
 
   // Limpa mensagens anteriores
+  clearTimeout(timeoutMensagemSucesso);
   resposta.className = "mensagem-resposta";
   resposta.textContent = "";
 
@@ -84,4 +90,11 @@ formContato.addEventListener("submit", (evento) => {
 
   // Limpa o formulário após envio
   formContato.reset();
+
+  // Rodada 2: a mensagem de sucesso some sozinha após 5s, pedido do cliente
+  // (ele achava estranho ela ficar na tela indefinidamente).
+  timeoutMensagemSucesso = setTimeout(() => {
+    resposta.className = "mensagem-resposta";
+    resposta.textContent = "";
+  }, 5000);
 });
